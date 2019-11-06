@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>{{ album.album_name }}</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+</head>
+
+<body>
+<div class="container">
+<div class="row">
+<div class="page-header">
+<h3 class="text-center">{{ album.album_name }} Album Songs</h3>
+</div>
+</div>
+
+<div class="row">
+    
+    <div class="col-sm-2">
+    <div class="panel panel-default">
+
+    <a href="{% url 'musicapp:detail' album.id %}">
+    <img src="{{ album.cover.url }}" class="img img-thumbnail img-responsive" style="width: 100%; height: 150px;"/>
+    </a>
+   
+    <div class="caption" style="margin: 2px;">
+    <h5>{{ album.album_name }}</h5>
+    <h6>{{ album.genre }}</h6>
+   
+    </div>
+    </div>
+    </div>
+
+    <div class="col-sm-10">
+    <ul class="nav nav-pills">
+    <li class="active">
+    <a href="">Songs</a>
+    </li>
+    <li class="">
+    <a href="">Add Song</a>
+    </li>
+    </ul>
+
+    <div class="panel panel-default" style="margin-top: 2px;">
+
+    <table class="table">
+    <thead>
+    <th>Song</th>
+    <th>Audio</th>
+    <th>Lyrics</th>
+    <th>Download</th>
+    <th>Action</th>
+    </thead>
+
+    {% for s in album.song_set.all %}
+    <tr>
+    <td>{{ s.song_name }}</td>
+    <td>
+    <a href="{{ s.audio.url }}" target="_blank" class="text-info">
+    <i class="fas fa-play"></i>
+    </a>
+    </td>
+    <td>
+    <a href="">
+    <i class="fas fa-book-open"></i>
+    </a>
+    </td>
+    <td>
+    <a href="{{ s.audio.url }}" class="text-success" download>
+    <i class="fas fa-download"></i>
+    </a>
+    </td>
+    <td>
+    <a href="">
+    <i class="fas fa-edit"></i>
+    </a>
+    <a href="" class="text-danger">
+    <i class="fas fa-trash"></i>
+    </a>
+    </td>
+    </tr>
+    {% endfor %}
+    </table>
+    
+    </div>
+    </div>
+</div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>ZMusic</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+</head>
+
+<body>
+<div class="container">
+<div class="row">
+<div class="page-header">
+<h3 class="text-center">ZMusic Album</h3>
+</div>
+</div>
+
+<div class="row">
+    {% for album in albums %}
+    <div class="col-sm-2">
+    <div class="panel panel-default">
+
+    <a href="{% url 'musicapp:detail' album.id %}">
+    <img src="{{ album.cover.url }}" class="img img-thumbnail img-responsive" style="width: 100%; height: 150px;"/>
+    </a>
+   
+    <div class="caption" style="margin: 2px;">
+    <h5>{{ album.album_name }}</h5>
+    <h6>{{ album.artist }}</h6>
+    <a href="" class="btn btn-primary btn-sm">
+    <i class="fas fa-edit"></i>    
+    </a>
+    <a href="" class="btn btn-info btn-sm">
+    <i class="fas fa-star"></i>    
+    </a>
+    <a href="" class="btn btn-danger btn-sm" style="float: right;">
+    <i class="fas fa-trash"></i>    
+    </a>
+    </div>
+    </div>
+    </div>
+    {% endfor %}
+</div>
+
+</div>
+</body>
+</html>
