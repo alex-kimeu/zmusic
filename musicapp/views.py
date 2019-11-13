@@ -20,12 +20,12 @@ def detail(request, album_id):
     return render(request, 'musicapp/detail.html', context)
 
 
-def create_album(request):
-    form = AlbumForm(request.POST or None, request.FILES or None)     
+def add_album(request):
+    form = AlbumForm(request.POST or None, request.FILES or None)
     if form.is_valid:
-        album = form.save(commit=False)
-        album.cover = request.FILES['cover']
+        album=form.save(commit=False)
+        album.album_cover = request.FILES['album_cover']
         album.save()
-        return redirect('musicapp:index')
-        
     return render(request, 'musicapp/add_album.html', {'form': form})
+
+

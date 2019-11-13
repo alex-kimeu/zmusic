@@ -1,37 +1,52 @@
-<!DOCTYPE html>
 {% load crispy_forms_tags %}
-<html>
+
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<title>ZMusic</title>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Add Album</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
 </head>
-
 <body>
-<div class="container">
-<div class="row">
-<div class="col-sm-4"></div>
-<div class="col-sm-4">
-<div class="page-header">
-<h3 class="text-center">Add Album</h3>
-</div>
 
-<form method="post" enctype="multipart/form-data">
- {% csrf_token %}
- {{  form|crispy }}
+    <style>
+        .btn-info {
+            width: 100%;
+        }
+        form {
+            padding: 2px;
+        }
+        .col-sm-4 {
+            padding-top: 2%;
+        }
+        
+    </style>
 
- <div class="form-group">
- <button type="submit" class="btn btn-info">Submit</button>
- </div>
-</form>
-</div>
-</div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4"></div>
+            <div class="col-sm-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                    <h3 class="text-center text-primary text-capitalize">add album</h3>
+                    </div>
+                    <div class="panel-body">
+                            <form method="post" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                {{ form|crispy }}
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-info">Submit</button>
+                                </div>    
+                                </form>
+                    </div>
 
-<div class="row">
+                </div>
+            </div>
+        </div>
+    </div>
     
-</div>
-
-</div>
 </body>
-
 </html>

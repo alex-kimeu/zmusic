@@ -14,7 +14,7 @@ GENRE = (
 class Album(models.Model):
     album_name = models.CharField(max_length=25)
     artist = models.CharField(max_length=25)
-    cover = models.ImageField()
+    album_cover = models.ImageField()
     genre = models.CharField(max_length=25, choices=GENRE, default='Unknown')
 
     def __str__(self):
